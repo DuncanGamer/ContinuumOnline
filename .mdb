@@ -1,0 +1,8 @@
+{
+  "projectName": "rickandmorty",
+  "meta": {
+    "type": "frontend"
+  },
+  "packageManager": "npm",
+  "hash": "67226cdb"
+}
