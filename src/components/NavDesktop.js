@@ -46,9 +46,9 @@ function NavDesktop() {
                     <div className=" container mx-auto flex items-center gap-x-6 ">
                         <div className=' container mx-auto flex justify-between items-center gap-x-6 '>
                             <div className=' hidden md:block'>
-                      <div className=' flex justify-between  gap-x-6'>
+                                <div className=' flex justify-between  gap-x-6'>
                                     <div>
-                           <img src='./logo1.png' alt="logo continum" width="60px" />
+                                        <a href='/'><img src='./logo1.png' alt="logo continum" width="60px" /></a>
                                     </div>
                                     <div className='flex ml-20 gap-4 '>
                                         <a className=" hover:text-gray-600" href="/"> Accueil</a>
@@ -72,8 +72,14 @@ function NavDesktop() {
                             </div>
                         </div>
                         <div className=' px-4 '>
-                            <div className='md:hidden' onClick={handleClick}>
-                                {isOpen ? <HiOutlineX className='h-6 w-6 ' /> : <FaAlignJustify className='h-6 w-6 ' />}
+
+
+                            <div className=' container mx-auto flex justify-between items-center gap-x-6 ' onClick={handleClick}>
+
+                                <div>  <a href='/App'><img src='./logo1.png' alt="logo continum" width="60px" /></a></div>
+
+                                <div> {isOpen ? <HiOutlineX className='h-6 w-6 ' /> : <FaAlignJustify className='h-6 w-6 ' />}</div>
+
 
 
                             </div>
@@ -86,16 +92,17 @@ function NavDesktop() {
                 <div className=' container bg-white '>
 
                     <ul className={!isOpen ? 'hidden' : 'absolute   bg-white w-full h-78  '}>
+
                         <li className="shadow-lg items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full"><a href='http://localhost:3000/'>Accueil</a></li>
-                    
+
                         <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">
-                        <a href="/Artist" className=" hover:text-gray-600">Artist</a>
+                            <a href="/Artist" className=" hover:text-gray-600">Artist</a>
                         </li>
                         <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">
-                        <a href="/London" className=" hover:text-gray-600">London</a>  
+                            <a href="/London" className=" hover:text-gray-600">London</a>
                         </li>
                         <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">
-                        <a href="/Barcelona" className=" hover:text-gray-600">Barcelona</a>
+                            <a href="/Barcelona" className=" hover:text-gray-600">Barcelona</a>
                         </li>
                         <div className=' flex flex-col gap-4'>
 

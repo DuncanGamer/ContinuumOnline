@@ -27,7 +27,7 @@ root.render(
   <BrowserRouter>
      <NavDesktop/>
    <Routes>
-      <Route path='/' element={<App/>}/>
+      <Route path='/App' element={<App/>}/>
       <Route path='/signup' element={<SignUp/>}/>
       <Route path='/Concertunic/:id' element={<Concertunic/>}/>
       <Route path='/London' element={<London/>}/>
