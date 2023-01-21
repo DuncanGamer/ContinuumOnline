@@ -46,9 +46,9 @@ function NavDesktop() {
                     <div className=" container mx-auto flex items-center gap-x-6 ">
                         <div className=' container mx-auto flex justify-between items-center gap-x-6 '>
                             <div className=' hidden md:block'>
-                                <div className=' flex justify-between  gap-x-6'>
+                      <div className=' flex justify-between  gap-x-6'>
                                     <div>
-                                        <img src='./logo1.png' alt="logo continum" width="60px" />
+                           <img src='./logo1.png' alt="logo continum" width="60px" />
                                     </div>
                                     <div className='flex ml-20 gap-4 '>
                                         <a className=" hover:text-gray-600" href="/"> Accueil</a>
@@ -87,14 +87,20 @@ function NavDesktop() {
 
                     <ul className={!isOpen ? 'hidden' : 'absolute   bg-white w-full h-78  '}>
                         <li className="shadow-lg items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full"><a href='http://localhost:3000/'>Accueil</a></li>
-                        <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">Concerts</li>
-                        <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">Artistes</li>
-                        <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">Comment ça marche?</li>
-                        <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">Pricing</li>
+                    
+                        <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">
+                        <a href="/Artist" className=" hover:text-gray-600">Artist</a>
+                        </li>
+                        <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">
+                        <a href="/London" className=" hover:text-gray-600">London</a>  
+                        </li>
+                        <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">
+                        <a href="/Barcelona" className=" hover:text-gray-600">Barcelona</a>
+                        </li>
                         <div className=' flex flex-col gap-4'>
 
                             <button className="mt-3 mx-16 hover:shadow-lg shadow-md shadow-gray-500/50 border px-5 py-3 rounded-xl  duration-300 ease-out hover:ease-in">
-                                <a className=' p-0 hover:text-gray-800' href="/signup">  SignUp</a>
+                                <a className=' p-0 hover:text-gray-800' href="/signup">Log up</a>
                             </button>
                             <button className='mb-4 mx-16 px-5 py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-800  bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in'>Sign in</button>
                         </div>
