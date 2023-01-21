@@ -66,7 +66,7 @@ function NavDesktop() {
 
                                     <a className=" hover:shadow-lg shadow-md shadow-gray-500/50 border w-40 text-center py-3 rounded-xl  duration-300 ease-out hover:ease-in" href="/signup">
                                         Log In</a>
-                                    <a href="http://localhost:3000/signup" className=" w-40 h-14 px-5 py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-800  bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in">Sign
+                                    <a href="/signup" className=" w-40 h-14 px-5 py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-800  bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in">Sign
                                         Up</a>
                                 </div>
                             </div>
@@ -74,9 +74,9 @@ function NavDesktop() {
                         <div className=' px-4 '>
 
 
-                            <div className=' container mx-auto flex justify-between items-center gap-x-6 ' onClick={handleClick}>
+                            <div className=' md:hidden container mx-auto flex justify-between items-center gap-x-6 ' onClick={handleClick}>
 
-                                <div>  <a href='/App'><img src='./logo1.png' alt="logo continum" width="60px" /></a></div>
+                                <div>  <a href='/'><img src='./logo1.png' alt="logo continum" width="60px" /></a></div>
 
                                 <div> {isOpen ? <HiOutlineX className='h-6 w-6 ' /> : <FaAlignJustify className='h-6 w-6 ' />}</div>
 
@@ -93,7 +93,7 @@ function NavDesktop() {
 
                     <ul className={!isOpen ? 'hidden' : 'absolute   bg-white w-full h-78  '}>
 
-                        <li className="shadow-lg items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full"><a href='http://localhost:3000/'>Accueil</a></li>
+                        <li className="shadow-lg items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full"><a href='/'>Accueil</a></li>
 
                         <li className="items-center pl-16 pt-2 h-10  border-b-2  bg-slate-50 w-full">
                             <a href="/Artist" className=" hover:text-gray-600">Artist</a>

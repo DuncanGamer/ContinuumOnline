@@ -13,7 +13,7 @@ function Baner() {
                     </div>
                     <div className="mt-56 md:w-1/2">
                         <button
-                            className=" px-5 py-3 md:py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-700/60 bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in">Create
+                            className=" px-5 py-3 md:py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-700/60 bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in " href= "/signup">Create
                             your account</button>
                     </div>
                 </div>
