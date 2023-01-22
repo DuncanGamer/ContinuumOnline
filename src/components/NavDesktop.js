@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { HiOutlineX } from 'react-icons/hi';
 import { FaAlignJustify, } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { token } from './functions/Auth';
 
 
 
@@ -13,7 +14,7 @@ import { Link } from 'react-router-dom';
 function NavDesktop() {
     const [isOpen, setIsOpen] = useState(false)
     const handleClick = () => setIsOpen(!isOpen)
-
+    const handleSesion=()=>{ localStorage.removeItem('token')}
 
 
 
@@ -64,12 +65,14 @@ function NavDesktop() {
                             <div className='hidden items-center g md:block'>
                                 <div className=" w-full h-14 flex justify-around gap-10">
 
-
-                                    <a className=" hover:shadow-lg shadow-md shadow-gray-500/50 border w-40 text-center py-3 rounded-xl  duration-300 ease-out hover:ease-in" href="/login">
-                                        Log In</a>
-                                    <a href="/signup" className=" w-40 h-14 px-5 py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-800  bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in">Log
-                                        Up</a>
-                                </div>
+                                    
+                               {
+                                !token() ? ( <a className=" hover:shadow-lg shadow-md shadow-gray-500/50 border w-40 text-center py-3 rounded-xl  duration-300 ease-out hover:ease-in" href="/login">
+                                Log In</a>):(<a onClick={handleSesion} href="/" className=" w-40 h-14 px-5 py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-800  bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in text-center">Log out</a>
+                            )
+                               } 
+                                   
+                                        </div>
                             </div>
                         </div>
                         <div className=' px-4 '>
@@ -108,7 +111,7 @@ function NavDesktop() {
                         <div className=' flex flex-col gap-4'>
 
                             <button className="mt-3 mx-16 hover:shadow-lg shadow-md shadow-gray-500/50 border px-5 py-3 rounded-xl  duration-300 ease-out hover:ease-in">
-                                <a className=' p-0 hover:text-gray-800' href="/signup">Log up</a>
+                                <a onClick={handleSesion} className=' p-0 hover:text-gray-800'>Log out</a>
                             </button>
                             <button href ="/login" className='mb-4 mx-16 px-5 py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-800  bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in'>Log in</button>
                         </div>

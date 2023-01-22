@@ -76,8 +76,8 @@ const handleSubmit = (e) => {
                     </div>
                    {error && <div className="text-red-500">Error al iniciar sesión</div>} 
                       </form>
-                     <div className=" text-gray-500">By signing up you agree to the <a href="#"
-                         className=" underline font-light">Terms of Service</a>
+                     <div className=" text-gray-500">Don't have an account?  <a href="/signup"
+                         className=" underline font-light">Create one here</a>
                       </div>
                 
 
