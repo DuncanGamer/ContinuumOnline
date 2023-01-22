@@ -6,31 +6,26 @@ import { HiOutlineX } from 'react-icons/hi';
 import { FaAlignJustify, } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { token } from './functions/Auth';
-import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 function NavDesktop() {
+    const nav = useNavigate();
     const [isOpen, setIsOpen] = useState(false)
     const handleClick = () => setIsOpen(!isOpen)
-    const handleSesion = () => { localStorage.removeItem('token') }
+    const handleSesion = () => { 
+        localStorage.removeItem('token')
+        nav('/')
+       
+     }
 
-    useEffect(() => {
-       }, []);
+ 
        
          
         
-  
-    
-
-    
-
-
-
-
-
-    return (
+  return (
         <>
 
             <div className="   shadow-md w-full fixed z-10 ">
