@@ -21,28 +21,18 @@ function SignUp() {
 
 
                     <div className=" mx-auto w-full lg:w-1/2 ">
-                        <div className="  mb-4 font-medium"> Welcome to Continuum. Sign up to get started!</div>
+                        <div className="  mb-4 font-medium"> Welcome to Continuum. Log up to get started!</div>
 
                         
                            
-                           <form className="flex flex-col gap-y-5  w-full lg:w-4/5">
+                           <form className="flex flex-col gap-y-5  w-full lg:w-4/5 mb-10">
                           
                             <label name="email"></label>
-                            <input onChange={(e)=> {
-                                setUser({
-                                    ...user,
-                                    email: e.target.value
-                                })
-                               }} className=" focus:outline-none focus:border-gray-500 hover:shadow-md shadow-gray-500/50 shadow-lg  rounded-lg px-4 py-3 border border-gray-400transition duration-300 ease-out hover:ease-in"
+                            <input className=" focus:outline-none focus:border-gray-500 hover:shadow-md shadow-gray-500/50 shadow-lg  rounded-lg px-4 py-3 border border-gray-400transition duration-300 ease-out hover:ease-in"
                                 type="email" name="email" placeholder="E-mail" />
                           <label name="password"></label>
                             <input
-                            onChange={(e)=> {
-                                setUser({
-                                    ...user,
-                                    password: e.target.value
-                                })
-                               }}
+                           
                                 className=" focus:outline-none focus:border-gray-500 hover:shadow-md shadow-gray-500/50 shadow-lg  rounded-lg px-4 py-3 border border-gray-400 transition duration-300 ease-out hover:ease-in"
                                 type="password" name="password" placeholder="Password" />
                            

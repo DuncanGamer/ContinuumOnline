@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-const cors = require('cors');
 import 'tw-elements';
 
 import {
@@ -18,7 +17,7 @@ import Footer from './components/Footer';
 import London from './components/London';
 import Barcelona from './components/Barcelona';
 import Artist from './components/Artist';
-
+import Login from './components/Login';
 
 
 
@@ -28,6 +27,7 @@ root.render(
      <NavDesktop/>
    <Routes>
       <Route path='/' element={<App/>}/>
+      <Route path='/login' element={<Login/>}/>
       <Route path='/signup' element={<SignUp/>}/>
       <Route path='/Concertunic/:id' element={<Concertunic/>}/>
       <Route path='/London' element={<London/>}/>

@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import { HiOutlineX } from 'react-icons/hi';
 import { FaAlignJustify, } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 
@@ -64,9 +65,9 @@ function NavDesktop() {
                                 <div className=" w-full h-14 flex justify-around gap-10">
 
 
-                                    <a className=" hover:shadow-lg shadow-md shadow-gray-500/50 border w-40 text-center py-3 rounded-xl  duration-300 ease-out hover:ease-in" href="/signup">
+                                    <a className=" hover:shadow-lg shadow-md shadow-gray-500/50 border w-40 text-center py-3 rounded-xl  duration-300 ease-out hover:ease-in" href="/login">
                                         Log In</a>
-                                    <a href="/signup" className=" w-40 h-14 px-5 py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-800  bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in">Sign
+                                    <a href="/signup" className=" w-40 h-14 px-5 py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-800  bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in">Log
                                         Up</a>
                                 </div>
                             </div>
@@ -109,7 +110,7 @@ function NavDesktop() {
                             <button className="mt-3 mx-16 hover:shadow-lg shadow-md shadow-gray-500/50 border px-5 py-3 rounded-xl  duration-300 ease-out hover:ease-in">
                                 <a className=' p-0 hover:text-gray-800' href="/signup">Log up</a>
                             </button>
-                            <button className='mb-4 mx-16 px-5 py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-800  bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in'>Sign in</button>
+                            <button href ="/login" className='mb-4 mx-16 px-5 py-3 rounded-xl hover:shadow-md shadow-lg shadow-blue-800  bg-blue-700 hover:bg-blue-700 active:bg-blue-900 text-white font-bold transition duration-300 ease-out hover:ease-in'>Log in</button>
                         </div>
                     </ul>
                 </div>
