@@ -4,13 +4,16 @@ const express = require('express');
 const morgan = require('morgan');
 //creamos una constante que va a contener la funcion express
 const app = express();
-
+const cors = require('cors');
 //Importamos el modulo de mysql
 
  app.get ('/', (req, res) => {
   res.send('Hello World');
 });
 
+app.get ('/users', (req, res) => {
+  res.send('all Users');
+});
 
 //Configuracion para que se carguen las variables de entorno
 require("dotenv").config();
@@ -23,7 +26,7 @@ app.use (morgan('dev'));
 
 //Para que el servidor entienda los datos que le enviamos en formato json
 app.use(express.json()); 
-
+app.use(cors());
 
 //Middleware
 //app.use(loggedMiddlewere.isLogged);
