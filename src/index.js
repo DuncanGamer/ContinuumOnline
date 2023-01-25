@@ -22,7 +22,7 @@ require("./database");
 const loggedMiddlewere = require("./middlewares/logged");
 // Settings servidor virtual
 app.set("port", process.env.PORT||3000);
-// morgan es un middleware que nos permite ver las peticiones que se hacen al servidor
+// 
 app.use (morgan('dev'));
 
 //Para que el servidor entienda los datos que le enviamos en formato json
