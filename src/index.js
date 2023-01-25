@@ -4,7 +4,7 @@ const express = require('express');
 const morgan = require('morgan');
 //creamos una constante que va a contener la funcion express
 const app = express();
-const cors = require('cors');
+
 //Importamos el modulo de mysql
 
  app.get ('/', (req, res) => {
@@ -21,12 +21,13 @@ require("dotenv").config();
 require("./database");
 const loggedMiddlewere = require("./middlewares/logged");
 // Settings servidor virtual
-app.set("port", process.env.PORT||5000);
+app.set("port", process.env.PORT||3000);
+// morgan es un middleware que nos permite ver las peticiones que se hacen al servidor
 app.use (morgan('dev'));
 
 //Para que el servidor entienda los datos que le enviamos en formato json
 app.use(express.json()); 
-app.use(cors());
+
 
 //Middleware
 //app.use(loggedMiddlewere.isLogged);
