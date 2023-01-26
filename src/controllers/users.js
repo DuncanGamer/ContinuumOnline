@@ -5,9 +5,14 @@ const { Router } = require("express");
 const router = Router();
 const secretKey = process.env.SECRET_KEY || "secret";
 const users  = require ('../models/users'); 
+const path = require('path');
+const root = path.join(__dirname, '../public');
 
 
-const getLogin = (req, res) => {
+const getLogin = (req, res) => {  
+  
+  
+    // Obtenemos el correo y la contraseña del cuerpo de la petición
     const { email, password } = req.body;
 
     // Buscamos el usuario en la base de datos utilizando su correo electrónico
@@ -25,11 +30,14 @@ const getLogin = (req, res) => {
         jwt.sign({ user: user }, secretKey, { expiresIn: "30d" }, (err, token) => {
           // Si no hay error al generar el token, devolvemos el token y el usuario en la respuesta
           res.json({ token });
+         
         });
       }
     });
+  
   };
 const getcreateUsers = (req, res) => { 
+  res.render('login');
 
     const { name, email, password } = req.body;
     // Creamos un nuevo documento de usuario utilizando el modelo
@@ -60,7 +68,7 @@ const getAllUsers = (verifyToken, (req, res) => {
 
 
 const getdeleteUsers=(req, res)=> {
-    res.send('Eliminar Usuario')
+    res.render('delete-users')
 }  
 
 

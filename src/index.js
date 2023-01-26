@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const app = express();
 const path = require('path');
 const users = require ('./routes/users')
-
+const loggedMiddleware = require('./middlewares/logged'); 
 
 
 
@@ -12,37 +12,26 @@ const users = require ('./routes/users')
 require("dotenv").config();
 //Conectamos con la base de datos
 require("./database");
-const loggedMiddlewere = require("./middlewares/logged");
-// Settings servidor virtual
+//Configuracion del servidor
 app.set("port", process.env.PORT || 3000);
-// 
-app.use(morgan('dev'));
-
-app.use (express.urlencoded({extended: false}));
-app.use(express.json());
-
-
 app.set ('view engine', 'ejs');
 app.set ('views', path.join(__dirname, 'views'));
+app.use(morgan('dev'));//Para que se cargue el morgan morgan es un middleware que nos permite ver las peticiones que se hacen al servidor
+app.use(loggedMiddleware.isLogged);//Para que se cargue el middleware
+app.use (express.urlencoded({extended: false}));//Para que se puedan enviar y recibir datos en formato urlencoded
+app.use(express.json());//Para que se puedan enviar y recibir datos en formato json
+app.use (express.static(path.join(__dirname, 'public')));//Para que se carguen los archivos estaticos
+app.use(require('./routes/concerts'));
+app.use('/users',users);
+app.listen(app.get("port"), () => {
+  console.log(`Todo va bien Brother ${app.get("port")}`);
+});
 
-app.use (express.static(path.join(__dirname, 'public')))
 
 app.get ('/', (req, res) => {
-  res.send('index');
+  res.render('index');
 });
 app.get('/users', (req, res) => {
   res.send('all Users');
 });
-//Endpoints
-app.use('/users',users)
 
-//router es un objeto que nos permite crear rutas
-
-// router auth rutas de autenticacion
-
-app.use(require('./routes/concerts'));
-//Server asignamos un puerto al servidor usando el metodo listen
-//el metodo listen recibe dos parametros el puerto y una funcion de callback
-app.listen(app.get("port"), () => {
-  console.log(`Todo va bien Brother ${app.get("port")}`);
-});

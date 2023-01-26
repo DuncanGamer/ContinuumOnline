@@ -3,7 +3,7 @@
 const express = require ('express');
 const { Router } = require("express");
 const router = Router();
-const jwt = require("jsonwebtoken");
+
 const path = require('path');
 const root = path.join(__dirname, '../public');
 const secretKey = process.env.SECRET_KEY || "secret";
@@ -11,7 +11,7 @@ const usersControler = require('../controllers/users');
 
 
 router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index"));
+
 });
 
 router.post("/login", usersControler.getLogin);
