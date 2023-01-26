@@ -1,13 +1,10 @@
 
 const jwt = require("jsonwebtoken");
-
+const express = require ('express');
+const { Router } = require("express");
+const router = Router();
 const secretKey = process.env.SECRET_KEY || "secret";
-
-
-
-
-
-
+const users  = require ('../models/users'); 
 
 
 const createUsers = (req, res) => { 
