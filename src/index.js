@@ -6,7 +6,7 @@ const path = require('path');
 
 
 app.get ('/', (req, res) => {
-  res.render('index');
+  res.render('Welcome to Continuum Api Rest');
 });
 
 app.get('/users', (req, res) => {
