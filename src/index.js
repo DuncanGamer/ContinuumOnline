@@ -1,17 +1,15 @@
 const { config } = require('dotenv');
-//primero importamos el modulo de express
 const express = require('express');
 const morgan = require('morgan');
-//creamos una constante que va a contener la funcion express
 const app = express();
+const path = require('path');
 
-//Importamos el modulo de mysql
 
- app.get ('/', (req, res) => {
-  res.send('Hello World');
+app.get ('/', (req, res) => {
+  res.render('index');
 });
 
-app.get ('/users', (req, res) => {
+app.get('/users', (req, res) => {
   res.send('all Users');
 });
 
@@ -21,24 +19,21 @@ require("dotenv").config();
 require("./database");
 const loggedMiddlewere = require("./middlewares/logged");
 // Settings servidor virtual
-app.set("port", process.env.PORT||3000);
+app.set("port", process.env.PORT || 3000);
 // 
-app.use (morgan('dev'));
+app.use(morgan('dev'));
 
-//Para que el servidor entienda los datos que le enviamos en formato json
-app.use(express.json()); 
+app.use (express.urlencoded({extended: false}));
+app.use(express.json());
 
 
-//Middleware
-//app.use(loggedMiddlewere.isLogged);
+app.set ('view engine', 'ejs');
+app.set ('views', path.join(__dirname, 'views'));
 
-//Static files middleware para que el servidor pueda acceder a los archivos estaticos
-//como imagenes, css, js
-app.use(express.static(__dirname + '/public'));
-
+app.use (express.static(path.join(__dirname, 'public')))
 
 //Endpoints
-app.use (require('./routes/users'));
+app.use(require('./routes/users'));
 
 //router es un objeto que nos permite crear rutas
 
@@ -47,6 +42,6 @@ app.use (require('./routes/users'));
 app.use(require('./routes/concerts'));
 //Server asignamos un puerto al servidor usando el metodo listen
 //el metodo listen recibe dos parametros el puerto y una funcion de callback
-app.listen(app.get ("port"), () => {
+app.listen(app.get("port"), () => {
   console.log(`Todo va bien Brother ${app.get("port")}`);
 });
