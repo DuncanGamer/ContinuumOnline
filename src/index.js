@@ -5,8 +5,8 @@ const app = express();
 const path = require('path');
 
 
-app.get ('/', (req, res) => {
-  res.render('index');
+app.get('/', (req, res) => {
+  res.send('Hello World');
 });
 
 app.get('/users', (req, res) => {
