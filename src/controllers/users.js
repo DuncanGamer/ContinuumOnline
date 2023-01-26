@@ -6,6 +6,7 @@ const router = Router();
 const secretKey = process.env.SECRET_KEY || "secret";
 const users  = require ('../models/users'); 
 const path = require('path');
+const { send } = require("process");
 const root = path.join(__dirname, '../public');
 
 
@@ -68,8 +69,24 @@ const getAllUsers = (verifyToken, (req, res) => {
 
 
 const getdeleteUsers=(req, res)=> {
-    res.render('delete-users')
+    
 }  
+
+const deletetUsers = (req, res) => {
+  res.render('delete-users')
+}
+
+const createUsers = (req, res) => {
+  res.render('create-users')
+}
+
+const allusers = (req, res) => {
+  res.render('all-users')
+}
+
+const login = (req, res) => {
+  res.render('login')
+}
 
 
 
@@ -90,5 +107,9 @@ module.exports = {
     getdeleteUsers,
     getcreateUsers,
     getAllUsers,
-    getLogin
+    getLogin,
+    deletetUsers,
+    createUsers,
+    allusers,
+    login
 }
