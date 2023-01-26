@@ -6,9 +6,7 @@ const path = require('path');
 
 
 
-app.get('/users', (req, res) => {
-  res.send('all Users');
-});
+
 
 //Configuracion para que se carguen las variables de entorno
 require("dotenv").config();
@@ -32,7 +30,9 @@ app.use (express.static(path.join(__dirname, 'public')))
 app.get ('/', (req, res) => {
   res.render('index');
 });
-
+app.get('/users', (req, res) => {
+  res.send('all Users');
+});
 //Endpoints
 app.use(require('./routes/users'));
 

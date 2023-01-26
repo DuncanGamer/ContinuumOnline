@@ -12,7 +12,7 @@ const secretKey = process.env.SECRET_KEY || "secret";
 const users  = require ('../models/users'); 
 
 router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
+  res.sendFile(path.join(__dirname, "../public/index"));
 });
 
 router.post("/api/login", (req, res) => {
