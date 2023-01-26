@@ -40,25 +40,9 @@ router.post("/login", (req, res) => {
 
 
 
-router.post("/create-users", (req, res) => {
+router.post("/create-users", usersControler.createUsers); 
  
-  // Obtenemos los datos del nuevo usuario a partir del cuerpo de la solicitud HTTP
-  const { name, email, password } = req.body;
-  // Creamos un nuevo documento de usuario utilizando el modelo
-  const newUser = new users({ name, email, password });
-  // Guardamos el usuario en la base de datos
-  newUser.save((error, user) => {
-    if (error) {
-      res.status(500).json({ message: "Error al crear el usuario", error });
-    } else {
-      // Si se ha creado el usuario con éxito, generamos un token JWT para autenticar al usuario
-      jwt.sign({ user: user }, secretKey, { expiresIn: "30d" }, (err, token) => {
-        // Si no hay error al generar el token, devolvemos el token y el usuario creado en la respuesta
-        res.json({ token, user });
-      });
-    }
-  });
-});
+ 
 
 router.post("/users", verifyToken, (req, res) => {
   jwt.verify(req.token, secretKey, (err, data) => {
