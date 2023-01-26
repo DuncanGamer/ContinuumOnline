@@ -1,21 +1,21 @@
 
 
-
+const express = require ('express');
 const { Router } = require("express");
-
 const router = Router();
-
 const jwt = require("jsonwebtoken");
 const path = require('path');
 const root = path.join(__dirname, '../public');
 const secretKey = process.env.SECRET_KEY || "secret";
 const users  = require ('../models/users'); 
+const usersControler = require('../controllers/users');
+
 
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index"));
 });
 
-router.post("/api/login", (req, res) => {
+router.post("/login", (req, res) => {
   const { email, password } = req.body;
 
   // Buscamos el usuario en la base de datos utilizando su correo electrónico
@@ -40,7 +40,7 @@ router.post("/api/login", (req, res) => {
 
 
 
-router.post("/api/create-users", (req, res) => {
+router.post("/create-users", (req, res) => {
  
   // Obtenemos los datos del nuevo usuario a partir del cuerpo de la solicitud HTTP
   const { name, email, password } = req.body;
@@ -60,7 +60,7 @@ router.post("/api/create-users", (req, res) => {
   });
 });
 
-router.post("/api/users", verifyToken, (req, res) => {
+router.post("/users", verifyToken, (req, res) => {
   jwt.verify(req.token, secretKey, (err, data) => {
     if (err) {
       res.sendStatus(403);
@@ -69,6 +69,8 @@ router.post("/api/users", verifyToken, (req, res) => {
     }
   });
 });
+
+router.get('/delete-users', usersControler.getdeleteUsers);
 
 
 function verifyToken(req, res, next) {

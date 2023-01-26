@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 const path = require('path');
-
+const users = require ('./routes/users')
 
 
 
@@ -28,13 +28,13 @@ app.set ('views', path.join(__dirname, 'views'));
 app.use (express.static(path.join(__dirname, 'public')))
 
 app.get ('/', (req, res) => {
-  res.render('index');
+  res.send('index');
 });
 app.get('/users', (req, res) => {
   res.send('all Users');
 });
 //Endpoints
-app.use(require('./routes/users'));
+app.use('/users',users)
 
 //router es un objeto que nos permite crear rutas
 
