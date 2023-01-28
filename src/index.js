@@ -31,7 +31,4 @@ app.listen(app.get("port"), () => {
 app.get ('/', (req, res) => {
   res.render('index');
 });
-app.get('/users', (req, res) => {
-  res.send('all Users');
-});
 

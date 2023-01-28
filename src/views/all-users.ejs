@@ -8,5 +8,22 @@
 </head>
 <body>
     <h1>Todos los usuarios</h1>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Pasword</td>
+    </tr>
+   <%users.forEach((user) => {  %>
+        <tr>
+            <td><%=user.id%></td>
+            <td><%=user.name%></td>
+            <td><%=user.email%></td>
+            <td><%=user.password%></td>
+        </tr>
+             <% }) %>
+
+</table>  
 </body>
 </html>

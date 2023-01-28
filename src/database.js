@@ -1,6 +1,7 @@
 
 
 mongosee = require('mongoose');
+
 mongosee.set('strictQuery', true);
 
 //Conexión a la base de datos

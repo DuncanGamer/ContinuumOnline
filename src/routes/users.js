@@ -13,22 +13,36 @@ const usersControler = require('../controllers/users');
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index"));
 });
+//Routes for the api login and logup
 
-router.post("/login", usersControler.getLogin);
+router.post("/login", usersControler.Login);
 
-router.post("/create-users", usersControler.getcreateUsers); 
+router.post("/logup", usersControler.Logup);
+
+router.post("/alltheusers", usersControler.Users);
+
+
+//Routes for the api
+router.post("/create-users", usersControler.createUsers); 
+
+router.post("/all-users", usersControler.allusers);
  
-router.post("/all-users", usersControler.getAllUsers);
+router.delete('/delete-users/:id', usersControler.deleteUsers);
 
-router.get('/delete-users', usersControler.getdeleteUsers);
+router.put('/update-users/:id', usersControler.updateUsers);
 
-router.get("/login", usersControler.login);
 
-router.get("/create-users", usersControler.createUsers);
+//Routes for the views
 
-router.get("/all-users", usersControler.allusers);
+router.get("/login", usersControler.getlogin);
 
-router.get("/delete-users", usersControler.deletetUsers);
+router.get("/create-users", usersControler.getcreateUsers);
+
+router.get("/all-users", usersControler.getallusers);
+
+router.get("/delete-users", usersControler.getdeletetUsers);
+
+router.get("/update-users", usersControler.updateUsers);
 
 
 
