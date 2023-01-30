@@ -40,9 +40,9 @@ router.get("/create-users", usersControler.getcreateUsers);
 
 router.get("/all-users", usersControler.getallusers);
 
-router.get("/delete-users", usersControler.getdeletetUsers);
+router.get("/delete-users/:id", usersControler.getdeletetUsers);
 
-router.get("/update-users", usersControler.updateUsers);
+router.get("/update-users/:id", usersControler.updateUsers);
 
 
 

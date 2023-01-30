@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -14,6 +15,8 @@
         <td>Name</td>
         <td>Email</td>
         <td>Pasword</td>
+        <td>Modificar</td>
+        <td>Eliminar</td>
     </tr>
    <%users.forEach((user) => {  %>
         <tr>
@@ -21,6 +24,8 @@
             <td><%=user.name%></td>
             <td><%=user.email%></td>
             <td><%=user.password%></td>
+            <td><a id='btn-update' href="http://localhost:3000/users/update-users/<%=user.id%>">Editar</a></td>
+            <td><a id='btn-delete' href="/users/delete-users/<%=user.id%>">Eliminar</a></td>
         </tr>
              <% }) %>
 

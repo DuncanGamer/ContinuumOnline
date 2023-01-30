@@ -52,7 +52,7 @@ const Logup = (req, res) => {
     if (error) {
       res.status(500).json({ message: "Error al crear el usuario", error });
     } else {
-   
+
       // Si se ha creado el usuario con éxito, generamos un token JWT para autenticar al usuario
       jwt.sign({ user: user }, secretKey, { expiresIn: "30d" }, (err, token) => {
         // Si no hay error al generar el token, devolvemos el token y el usuario creado en la respuesta
@@ -78,8 +78,21 @@ const allusers = (req, res) => {
 }
 
 const createUsers = (req, res) => {
-  someusers.push(req.body)
-  res.render('all-users', { users: someusers } )
+const data = req.body
+const newUser = new users({
+  name: data.name,
+  email: data.email,
+  password: data.password,
+})
+newUser.save((err, result) => {
+  if (err) {
+    console.log ('error al rigistrar usuario')}
+    else {
+      console.log ('usuario registrado')
+      res.redirect('/users/all-users')
+    }
+  })
+ 
 }
 
 const deleteUsers = (req, res) => {
@@ -90,7 +103,7 @@ const deleteUsers = (req, res) => {
       break
     }
   }
-  res.render('all-users', { users: someusers } )
+  res.render('all-users', { users: result })
 
 }
 
@@ -104,21 +117,16 @@ const updateUsers = (req, res) => {
       break
     }
   }
-  res.render('all-users', { users: someusers } )
+  res.render('all-users', { users: result })
 }
 
 
 //Routes for the views
 
-const someusers =[
-{ id: 1 , name: 'jose', email: 'alberto@gmail.com', password: '1234'},
-{id: 2 , name: 'Pedro', email: 'alberto@gmail.com', password: 'abc'},
-{id: 3 , name: 'Juan', email:'juan@gmail.com' , password: '5255'},
-
-] 
 
 
- 
+
+
 
 const getdeletetUsers = (req, res) => {
   res.render('delete-users')
@@ -129,42 +137,61 @@ const getcreateUsers = (req, res) => {
 }
 
 const getallusers = (req, res) => {
-  res.render('all-users', { users: someusers } )
-}
+  users.find({}, (error, result) => {
+    if (error) {
+      console.log(error)
+    }
+    else {
+      console.log(result)
+      res.render('all-users', { users: result })
+    }
+  })} 
 
+ 
 const getlogin = (req, res) => {
-  res.render('login')
-}
-const getupdateUsers = (req, res) => {
-  res.render('update-users')
-}
-
-
-
-
-function verifyToken(req, res, next) {
-  const bearerHeader = req.headers["authorization"];
-  if (typeof bearerHeader !== "undefined") {
-    const bearer = bearerHeader.split(" ");
-    const bearerToken = bearer[1];
-    req.token = bearerToken;
-    next();
-  } else {
-    res.sendStatus(403);
+    res.render('login')
   }
-}
 
-module.exports = {
-  deleteUsers,
-  updateUsers,
-  createUsers,
-  allusers,
-  Users,
-  Login,
-  getupdateUsers,
-  getcreateUsers,
-  getdeletetUsers,
-  getallusers,
-  getlogin,
-  Logup,
-}   
+
+  const getupdateUsers = (req, res) => {
+    const param = req.params.id
+   users.find ({_id: param}, (error, result) => {
+      if (error) {
+        console.log('Haocurrido un error:' + error)
+      }
+      else {
+        console.log(result)
+        res.render('update-users', { users: result })
+      }
+   })
+     }
+
+
+
+
+  function verifyToken(req, res, next) {
+    const bearerHeader = req.headers["authorization"];
+    if (typeof bearerHeader !== "undefined") {
+      const bearer = bearerHeader.split(" ");
+      const bearerToken = bearer[1];
+      req.token = bearerToken;
+      next();
+    } else {
+      res.sendStatus(403);
+    }
+  }
+
+  module.exports = {
+    deleteUsers,
+    updateUsers,
+    createUsers,
+    allusers,
+    Users,
+    Login,
+    getupdateUsers,
+    getcreateUsers,
+    getdeletetUsers,
+    getallusers,
+    getlogin,
+    Logup,
+  }   

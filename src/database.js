@@ -1,6 +1,6 @@
 
 
-mongosee = require('mongoose');
+const mongosee = require('mongoose');
 
 mongosee.set('strictQuery', true);
 
@@ -16,3 +16,5 @@ mongosee.connect(process.env.MONGO_URI, {
 .then(db => console.log('DB is connected'))
 .catch(err => console.error('Db is not connected' + err));
  
+//Exportamos el modulo
+module.exports = mongosee;
