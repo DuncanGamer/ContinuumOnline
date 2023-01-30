@@ -16,12 +16,12 @@ const handleSubmit = (e) => {
 
     
     const data = {
-        email: e.target.email.value,
-        password: e.target.password.value,
-        name: e.target.name.value,
+         email: e.target.email.value,
+         name: e.target.name.value,
+         password: e.target.password.value,
     } 
-    axios.post ('https://api-ecommerce.ed.team/api/v1/public/users', data)
-    .then (response => localStorage.setItem("token",response.data.data.token))
+    axios.post ('https://apicontinuum.herokuapp.com/users/logup', data)
+    .then (response => localStorage.setItem("token",response.token))
     .then (response => nav('/login'))
     .catch (error => setError(error))
 }
@@ -80,7 +80,7 @@ const handleSubmit = (e) => {
                          </button>
 
                     </div>
-                   {error && <div className="text-red-500">Error al iniciar sesión</div>} 
+                   {error && <div className="text-red-500">Error al crear sesión</div>} 
                       </form>
                      <div className=" text-gray-500">By signing up you agree to the <a href="#"
                          className=" underline font-light">Terms of Service</a>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import React from 'react'
+import { token } from './functions/Auth';
 
 const Login = () => {
     
@@ -18,8 +19,9 @@ const handleSubmit = (e) => {
         email: e.target.email.value,
         password: e.target.password.value,
     } 
-    axios.post ('https://api-ecommerce.ed.team/api/v1/public/login', data)
-    .then (response => localStorage.setItem("token",response.data.data.token))
+    axios.post ('https://apicontinuum.herokuapp.com/users/login', data)
+    
+    .then (response => localStorage.setItem("token",response.data.token))
     .then (response => nav('/'))
     .catch (error => setError(error))
 }
