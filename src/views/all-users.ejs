@@ -8,7 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Todos los usuarios</h1>
+<div class="menu">
+    <h1>All users</h1>
+    <a id='btn-update'href="/users/create-users">Create user</a>
+</div>   
+    
+
 <table>
     <tr>
         <td>Id</td>
@@ -24,8 +29,8 @@
             <td><%=user.name%></td>
             <td><%=user.email%></td>
             <td><%=user.password%></td>
-            <td><a id='btn-update' href="http://localhost:3000/users/update-users/<%=user.id%>">Editar</a></td>
-            <td><a id='btn-delete' href="/users/delete-users/<%=user.id%>">Eliminar</a></td>
+            <td><a id='btn-update' href="/users/update-users/<%=user.id%>">Update</a></td>
+            <td><a id='btn-delete' href="/users/delete-users/<%=user.id%>">Delete</a></td>
         </tr>
              <% }) %>
 

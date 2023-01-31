@@ -10,7 +10,7 @@ const root = path.join(__dirname, '../public');
 const { send } = require("process");
 
 
-//Routes for the login and loguo api
+//Routes for the login and logup api
 
 const Login = (req, res) => {
 
@@ -75,11 +75,12 @@ const Users = (verifyToken, (req, res) => {
 
 
 const allusers = (req, res) => {
+ 
 }
 
 const createUsers = (req, res) => {
-const data = req.body
-const newUser = new users({
+ const data = req.body
+ const newUser = new users({
   name: data.name,
   email: data.email,
   password: data.password,
@@ -97,39 +98,50 @@ newUser.save((err, result) => {
 
 const deleteUsers = (req, res) => {
   const param = req.params.id
-  for (let i = 0; i < someusers.length; i++) {
-    if (param == someusers[i].id) {
-      someusers.splice(i, 1)
-      break
+  users.deleteOne ({_id:param}, (error, result) => {
+    if (error) {
+      console.log('ha ocurrido un error'+error)
+    }else{
+      console.log('usuario eliminado')
+      res.redirect('/users/all-users')
     }
-  }
-  res.render('all-users', { users: result })
+  })
+ 
 
 }
 
 const updateUsers = (req, res) => {
-  const param = req.params.id
-  for (let i = 0; i < someusers.length; i++) {
-    if (param == someusers[i].id) {
-      someusers[i].nombre = req.body.name
-      someusers[i].email = req.body.email
-      someusers[i].password = req.body.password
-      break
-    }
-  }
-  res.render('all-users', { users: result })
+   const param = req.params.id
+   const data = req.body
+   users.findOneAndUpdate({_id:param}, data, (error, result) => {
+    if (error) {
+      console.log('ha ocurrido un error'+error)
+      }else{
+        console.log('usuario actualizado')
+        res.redirect('/users/all-users')
+      }
+    })
 }
+
+
+
+
 
 
 //Routes for the views
 
 
-
-
-
-
 const getdeletetUsers = (req, res) => {
-  res.render('delete-users')
+  const param = req.params.id
+  users.find({_id:param}, (error, result) => {
+    if (error) {
+      console.log('ha ocurrido un error'+error)
+    }else{
+      console.log(result)
+      res.render('delete-users', { users: result })
+    }
+    
+      })
 }
 
 const getcreateUsers = (req, res) => {
@@ -145,7 +157,9 @@ const getallusers = (req, res) => {
       console.log(result)
       res.render('all-users', { users: result })
     }
-  })} 
+  })
+  
+ } 
 
  
 const getlogin = (req, res) => {
@@ -154,17 +168,17 @@ const getlogin = (req, res) => {
 
 
   const getupdateUsers = (req, res) => {
-    const param = req.params.id
-   users.find ({_id: param}, (error, result) => {
-      if (error) {
-        console.log('Haocurrido un error:' + error)
-      }
-      else {
-        console.log(result)
-        res.render('update-users', { users: result })
-      }
-   })
-     }
+   const param = req.params.id
+   users.find({_id:param}, (error, result) => {
+    if (error) {
+      console.log('ha ocurrido un error'+error)
+    }else{
+      console.log(result)
+      res.render('update-users', { users: result })
+    }
+   
+     })
+  }
 
 
 

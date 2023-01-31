@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Actulizar usuarios</h1>
+    <div class="menu">
+    <h1>Update users</h1>
+    <a id='btn-update'href="/users/all-users">All users</a>
+ </div>  
+    <form action="/users/update-users/<%= users[0]['id'] %>" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Name" id="name" value="<%= users[0]['name'] %>">
+        <label for="email">Email</label>
+        <input type="text" name="email" placeholder="Email" id="email"value="<%= users[0]['email'] %>">
+        <label for="password">Password</label>
+        <input type="text" name="password" placeholder="Password" id="password" value="<%= users[0]['password'] %>">
+        <input id = 'btn-update'type="submit" value="Update">
+    </form>
 </body>
 </html>

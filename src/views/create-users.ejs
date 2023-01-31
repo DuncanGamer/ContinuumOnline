@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Crear usuarios</h1>
+   <div class="menu">
+    <h1>Create user</h1>
+    <a id='btn-update'href="/users/all-users">All users</a>
+ </div>  
+    
+
     <form action="/users/create-users" method="POST">
         <label for="name">Name</label>
-        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="name" placeholder="Name" id="name">
         <label for="email">Email</label>
-        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="email" placeholder="Email" id="email">
         <label for="password">Password</label>
-        <input type="text" name="password" placeholder="Password">
-        <input type="submit" value="Crear">
+        <input type="text" name="password" placeholder="Password" id="password">
+        <input id = 'btn-update'type="submit" value="Create">
     </form>
 </body>
 </html>

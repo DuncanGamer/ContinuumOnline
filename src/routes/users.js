@@ -27,9 +27,9 @@ router.post("/create-users", usersControler.createUsers);
 
 router.post("/all-users", usersControler.allusers);
  
-router.delete('/delete-users/:id', usersControler.deleteUsers);
+router.post('/delete-users/:id', usersControler.deleteUsers);
 
-router.put('/update-users/:id', usersControler.updateUsers);
+router.post('/update-users/:id', usersControler.updateUsers);
 
 
 //Routes for the views
@@ -42,7 +42,7 @@ router.get("/all-users", usersControler.getallusers);
 
 router.get("/delete-users/:id", usersControler.getdeletetUsers);
 
-router.get("/update-users/:id", usersControler.updateUsers);
+router.get("/update-users/:id", usersControler.getupdateUsers);
 
 
 
