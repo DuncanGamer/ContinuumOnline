@@ -1,18 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="/dist/output.css" rel="stylesheet">
-    <title>Document</title>
-    
-</head>
-<body>
-    <h1>Welcome to my Api Continuum</h1>
-    
 
-   <script src="js/index.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Document</title>
+
+</head>
+
+<body>
+  <nav>
+    <div class="mobile">
+      <div class="header">
+        <div class="logo"><img class="logo" src="./images/logo.png"> </div>
+        <div class="more"><button id="bMore"><span class="material-icons">menu</span></button></div>
+      </div>
+      <div id="links" class="active">
+        <a href="/">Home</a>
+        <a href="#">Documentation</a>
+        <a href="#">All users</a>
+        <a href="/users/all-users">Create users</a>
+        <a href="#">All concerts</a>
+        <a href="#">Create concert</a>
+        <a href="#">All tickets</a>
+        <a href="#">Create ticket</a>
+        <a href="#">All reservations</a>
+        <a href="#">Create reservation</a>
+      </div>
+
+
+
+
+
+    </div>
+
+    <div class="desktop">
+      <div class="logo"><img class="logo" src="./images/logo.png"></div>
+      <div class="primary">
+        <a href="/">Home</a>
+        <a href="#">Documentation</a>
+        <a href="/users/all-users">All users</a>
+      </div>
+
+      <div class="secondary full">
+        <a href="#">Serch</a>
+        <a href="#">Sign up</a>
+        <a href="#">Login</a>
+      </div>
+
+      <div class="secondary mini">
+        <a href="#">More</a>
+        <div class="submenu">
+          <a href="#">Serch</a>
+          <a href="#">Sign up</a>
+          <a href="#">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <aside>
+    <header>
+      <div class="bar"></div>
+      <div class="user">
+        <img src="./images/roboApi.png" alt="logo">
+        <div class="name">Continuum Api</div>
+      </div>
+    </header>
+    <div class="linksVer">
+      <a href="#">
+        <div class="icon"></div>
+        <div class="title">Users</div>
+      </a>
+      <a href="#">
+        <div class="icon"></div>
+        <div class="title">Create user</div>
+      </a>
+      <a href="#">
+        <div class="icon"></div>
+        <div class="title">Concerts</div>
+      </a>
+      <a href="#">
+        <div class="icon"></div>
+        <div class="title">Create concert</div>
+      </a>
+      <a href="#">
+        <div class="icon"></div>
+        <div class="title">Tickets</div>
+      </a>
+      <a href="#">
+        <div class="icon"></div>
+        <div class="title">Create ticket</div>
+      </a>
+      <a href="#">
+        <div class="icon"></div>
+        <div class="title">Api documentation</div>
+      </a>
+      <a href="#">
+        <div class="icon"></div>
+        <div class="title">Get your Api Key</div>
+      </a>
+
+    </div>
+  </aside>
+
+
+
+
+
+  <script src="js/index.js"></script>
 </body>
+
 </html>

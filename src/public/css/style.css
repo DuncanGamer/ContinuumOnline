@@ -1,5 +1,39 @@
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+
+  .active{
+    display : none;
+  }
+
+
+
+
 table{
  margin : 0 auto;
+ margin-top: 50px;
+ color: #fff;
 }
 td{ 
     padding: 15px;
@@ -59,3 +93,115 @@ form{
 #btn-delete:hover {
     background-color: #da190b;
 }
+body{
+    background-color: #272938;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background-color: #0f0f0f;
+    
+    color: #fff;
+    width: 100%;
+    margin: 0;
+}
+
+nav .mobile{
+    display: none;
+}
+nav .mobile .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    padding-top: 10px;
+
+}
+nav .mobile .header .more button{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+
+}
+
+
+img.logo{
+    
+    width: 80px;
+}
+
+nav a{
+    color: #fff;
+    text-decoration: none;
+    padding: 20px 25px;
+    font-size: 20px;
+    display: block;
+    margin: 0;
+}
+
+nav a:hover{
+    background-color: #be62dd;
+    color: black;
+}
+nav .desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav .desktop .primary,
+nav .desktop .secondary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .desktop .secondary.mini {
+    display: none;
+}
+
+
+@media screen and (max-width:853px){
+    nav .secondary.full{
+        display: none;
+    }
+    nav .secondary.mini{
+        display: block !important;
+    } 
+   
+}
+
+nav .secondary.mini .submenu{
+    position: absolute;
+    display:none;
+    width: 200px;
+    right: 0;
+
+}
+nav .secondary.mini:hover .submenu{
+    display: block;
+    background-color: #be62dd;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-left: -10px;
+}
+@media screen and (max-width:640px){
+     nav .desktop{
+        display: none;
+    }
+    
+     nav .mobile{
+        display: block;
+    }
+}   
+   
+
+    
