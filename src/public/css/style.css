@@ -54,15 +54,7 @@ form{
     
 }
 
-.menu{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    padding: 10px;
-    background-color: #f1f1f1;
 
-}
 
 #btn-update{
     background-color: #4CAF50;
@@ -98,6 +90,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
+   
 }
 
 nav{
@@ -203,5 +196,91 @@ nav .secondary.mini:hover .submenu{
     }
 }   
    
+/* Menu vertcal */
 
+aside{
+    background-color: #0f0f0f;
+    position :absolute;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width:68px;
+    overflow: hidden;
+    transition: width 0.2s ease-in-out;
+    left: 0;
+ 
+    padding-left: 0;
+    padding-top: 70px;
     
+
+}
+
+aside a{
+   
+        color: #fff;
+        text-decoration: none;
+        padding: 20px 25px;
+        font-size: 20px;
+        display: block;
+        margin: 0;
+        left: 0;
+    
+}
+aside a:hover{
+    background-color: #be62dd;
+    color: black;
+    
+}
+aside:hover{
+    width:300px
+}
+aside .user{
+    color:#fff;
+    text-align: center;
+    padding: 20px 0px;
+    font-size: 30px;
+    height: 180px;
+    width: 300px;
+    transform: translateX(-300px);
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+
+}
+aside .user img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+aside:hover .user{
+    transform: translateX(0px);
+    opacity: 1;
+
+}
+
+@media screen and (max-width:640px){
+    aside{
+        display: none;
+    }
+   
+   
+}
+
+aside .linksVer a {
+    color: #fff;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 300px;
+}
+aside .linksVer a .icon{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
