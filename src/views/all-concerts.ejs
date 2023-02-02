@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
 </head>
-
 <body>
-  <nav>
-
-
-
-
-
+<nav>
     <div class="mobile">
       <div class="header">
         <div class="logo"><img class="logo" src="./images/logo.png"> </div>
         <div class="more"><button id="bMore"><span class="material-icons">menu</span></button></div>
       </div>
-      <div id="links" class="active">
+      <div id="links" class ="active">
         <a href="/">Home</a>
         <a href="#">Documentation</a>
         <a href="/users/all-users">All users</a>
@@ -63,9 +56,8 @@
         </div>
       </div>
     </div>
-  </nav>
-
-  <aside>
+  </nav>  
+    <aside>
     <header>
       <div class="bar"></div>
       <div class="user">
@@ -110,38 +102,35 @@
 
     </div>
   </aside>
+  
 
-
-
-
-  <table>
+<table>
     <tr>
-      <td>Id</td>
-      <td>Name</td>
-      <td>Email</td>
-      <td>Pasword</td>
-      <td>Modificar</td>
-      <td>Eliminar</td>
+        <td>Id</td>
+        <td>Concert</td>
+        <td>Artist</td>
+        <td>Place</td>
+        <td>Date</td>
+        <td>Price</td>
+        <td>Modificar</td>
+        <td>Eliminar</td>
     </tr>
-    <%users.forEach((user) => {  %>
-    <tr>
-      <td><%=user.id%></td>
-      <td><%=user.name%></td>
-      <td><%=user.email%></td>
-      <td><%=user.password%></td>
-      <td><a id='btn-update' href="/users/update-users/<%=user.id%>">Update</a></td>
-      <td><a id='btn-delete' href="/users/delete-users/<%=user.id%>">Delete</a></td>
-    </tr>
-    <% }) %>
+   <%concerts.forEach((concerts) => {  %>
+        <tr>
+            <td><%=concerts.id%></td>
+            <td><%=concerts.concertName%></td>
+            <td><%=concerts.artist%></td>
+            <td><%=concerts.place%></td>
+            <td><%=concerts.date%></td>
+            <td><%=concerts.price%></td>
+            <td><a id='btn-update' href="/concerts/update-concerts/<%=concerts.id%>">Update</a></td>
+            <td><a id='btn-delete' href="/concerts/delete-concerts/<%=concerts.id%>">Delete</a></td>
+        </tr>
+             <% }) %>
 
-  </table>
+</table> 
 
-
-
-
-
-  <script src="/js/script.js"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.3/iconify-icon.min.js"></script>
+<script src="/js/script.js"></script>
+ <script src="https://code.iconify.design/iconify-icon/1.0.3/iconify-icon.min.js"></script>
 </body>
-
 </html>

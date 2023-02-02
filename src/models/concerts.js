@@ -1,9 +1,10 @@
 const {Schema, model,} = require('mongoose');
 
 const concertSchema = new Schema({
-    name: {type: String, required: true},
+    concertName : {type: String, required: true},
     artist: {type: String, required: true},
     place: {type: String, required: true},
+    date: {type: String, required: true},
     price: {type: Number, required: true},
     description: {type: String, required: true},
     image: {type: String, required: true},

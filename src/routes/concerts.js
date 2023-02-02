@@ -1,6 +1,14 @@
 const {Router} = require ('express');
 const  concerts = require ('../models/concerts');
 const router = Router();
+const express = require ('express');
+
+const path = require('path');
+const root = path.join(__dirname, '../public');
+const secretKey = process.env.SECRET_KEY || "secret";
+const usersControler = require('../controllers/concerts');
+
+
 
 //Endpoints
 // Visualizar todos los conciertos 
@@ -43,21 +51,13 @@ router.get("/api/concerts/name/:name", async (req,res)=>{
   
 //Crear concierto
 
-router.post ("/api/concerts",async(req,res)=>{
-    const {name, artist, date, place, price, description, image} = req.body;
-   const newConcert = await concerts({
-        name : name,
-        artist : artist,
-        date : date,
-        place : place,
-        price : price,
-        description : description,
-        image : image,
-    });
-    //funcion para poder almacenar los datos en la base de datos
-    newConcert.save();
-    res.json ({message:"Concert Created"});
-}); 
+router.post ("/create-concerts", usersControler.createConcerts);
+
+router.get("/all-concerts", usersControler.getallconcerts);
+
+router.get("/delete-concerts/:id", usersControler.getdeleteConcerts);
+
+router.post('/delete-concerts/:id', usersControler.deleteConcerts);
 
 //Actualizar concierto
 router.put ("/api/concerts/:id",async(req,res)=>{

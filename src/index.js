@@ -5,7 +5,7 @@ const app = express();
 const path = require('path');
 const users = require ('./routes/users')
 const loggedMiddleware = require('./middlewares/logged'); 
-
+const concerts = require ('./routes/concerts')
 
 
 //Configuracion para que se carguen las variables de entorno
@@ -22,8 +22,9 @@ app.use (express.urlencoded({extended: false}));//Para que se puedan enviar y re
 app.use(express.json());//Para que se puedan enviar y recibir datos en formato json
 app.use (express.static(path.join(__dirname, 'public')));//Para que se carguen los archivos estaticos
 
-app.use(require('./routes/concerts'));
+
 app.use('/users',users);
+app.use('/concerts',concerts);
 
 app.listen(app.get("port"), () => {
   console.log(`Todo va bien Brother ${app.get("port")}`);
