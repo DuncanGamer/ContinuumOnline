@@ -35,26 +35,33 @@ const Login = async (req, res) => {
 
 
 
-const Logup = (req, res) => {
+const Logup = async (req, res) => {
+  try {
+    // Obtenemos el nombre, correo y contraseña del cuerpo de la petición
+    const { name, email, password } = req.body;
 
-  // Obtenemos el nombre, correo y contraseña del cuerpo de la petición
-  const { name, email, password } = req.body;
-  // Creamos un nuevo documento de usuario utilizando el modelo
-  const newUser = new users({ name, email, password });
-  // Guardamos el usuario en la base de datos
-  newUser.save((error, user) => {
-    if (error) {
-      res.status(500).json({ message: "Error al crear el usuario", error });
-    } else {
-
-      // Si se ha creado el usuario con éxito, generamos un token JWT para autenticar al usuario
-      jwt.sign({ user: user }, secretKey, { expiresIn: "30d" }, (err, token) => {
-        // Si no hay error al generar el token, devolvemos el token y el usuario creado en la respuesta
-        res.json({ token, user });
-      });
+    // Verificamos si el correo electrónico ya existe en la base de datos
+    const existingUser = await users.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: "El correo electrónico ya está en uso" });
     }
-  });
+
+    // Creamos un nuevo documento de usuario utilizando el modelo
+    const newUser = new users({ name, email, password });
+
+    // Guardamos el usuario en la base de datos
+    const savedUser = await newUser.save();
+
+    // Generamos un token JWT para autenticar al usuario
+    const token = jwt.sign({ user: savedUser }, secretKey, { expiresIn: "30d" });
+
+    // Devolvemos el token y el usuario creado en la respuesta
+    res.json({ token, user: savedUser });
+  } catch (error) {
+    res.status(500).json({ message: "Error al crear el usuario", error });
+  }
 };
+
 
 const Users = (verifyToken, (req, res) => {
   jwt.verify(req.token, secretKey, (err, data) => {
