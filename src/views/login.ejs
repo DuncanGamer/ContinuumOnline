@@ -13,27 +13,31 @@
 <body>
   <div class="form-container">
     <div class="login-container">
-      <h2>Welcome</h2>
+      <h2>Welcome to Continuum Api</h2>
       <p>Sign in to your account</p>
       <form action="/login" method="POST">
         <p>
-          <label for="username">Username</label>
-          <input type="text" name="username" placeholder="Username" id="username">
+          <label for="email">email</label>
+          <input class="input" type="email" name="email" placeholder="email" id="username">
         </p>
         <p>
           <label for="password">Password</label>
-          <input type="password" name="password" placeholder="Password" id="password">
+          <input class="input" type="password" name="password" placeholder="Password" id="password">
         </p>
         <div class="options">
-          <div class="remember">
+          <div >
+           remember me
+         
             <input type="checkbox" name="remember" id="remember">
+            
           </div>
-          <div class="forgot">
+          <div >
             <a href="#">Forgot password?</a>
           </div>
-          <button type="submit" class="btn btn-login" value="Log in">Login</button>
-
+          
         </div>
+        <button type="submit" class="btn btn-login" value="Log in">Login</button>
+
         <div class="providers">
           <span>Or login with</span>
           <button class="btn btn-google">Google</button>

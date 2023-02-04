@@ -32,6 +32,6 @@ app.listen(app.get("port"), () => {
 
 
 app.get ('/', (req, res) => {
-  res.render('index');
+  res.render('login');
 });
 

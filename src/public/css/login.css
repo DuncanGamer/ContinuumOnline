@@ -1,5 +1,5 @@
 body{
-    background-color: #272938;
+    background-color: #be62dd;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
@@ -7,12 +7,12 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #fff;
+    color: rgb(12, 11, 11);
 }
 .form-container{
     display: flex;
     align-items: center;
-    background-color: #be62dd;
+    background-color: whitesmoke;
     width: 80%;
     height: 90%;
     padding: 20px;
@@ -32,4 +32,155 @@ body{
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
+.form-container .login-container > p,
+.form-container .login-container > spam {
+text-align: center;
+color: #555;
+
+}
+
+.form-container .login-container  label {
+    display: block;
+    font-weight: bold;
+    padding: 10px 0;
+
+}
+.form-container .login-container  input.input{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container .login-container  input.input:focus{
+    outline: solid 1px rgb(0, 153, 255);
+ } 
+ 
+ .form-container .login-container .options{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: 10px 0;
+ }
+ .form-container .login-container .providers{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px 0;
+
+ }
+
+
+ .form-container a {
+    color: rgb(0, 153, 255);
+    text-decoration: none;
+  
+}
+.form-container a:hover {
+    color: rgb(0, 153, 255);
+    text-decoration: underline;
+}
+
+.btn{
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn.btn-login{
+    background-color: #777;
+    color: #fff;
+}
+.btn.btn-login:hover{
+    background-color: #555;
+    color: #fff;
+}
+
+.btn.btn-facebook{
+    background-color: #3b5998;
+    color: #fff;
+}
+.btn.btn.btn-facebook:hover{
+    background-color: #2d4373;
+    color: #fff;
+}
+.btn.btn-google{
+   background-color: #fff;
+    color: black;
+    border: 1px solid #ccc;
+}
+.btn.btn-google:hover{
+    background-color: #e6e6e6;
+    color: black;
+    border: 1px solid #ccc;
+}
+.btn.btn-twitter{
+    background-color: #1da1f2;
+    color: #fff;
+}
+.btn.btn-twitter:hover{
+    background-color: #0d8dd5;
+    color: #fff;
+}
+
+.form-container .welcome-screen-container{
+    background-image: url("https://images.unsplash.com/photo-1607033379710-044f964ccfde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y29uY2llcnRvc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 100%;
+}
+@media screen and (max-width: 1369px){
+    .form-container{
+       width: auto;
+    }
+    .form-container .login-container{
+        width: 400px;
+        margin: 0;
+    }
+    .form-container .welcome-screen-container{
+        display: none;
+        width: 0;
+       
+    }
+
+}
+@media screen and (max-width: 900px){
+    .form-container{
+        flex-direction: column;
+        height: 80%;
+        width:70%;
+    }
+    .form-container .login-container{
+       width: 500px;
+    }
+    .form-container .welcome-screen-container{
+        display: none;
+        width: 0;
+       
+    }
+
+}
+
+
+
+
+
+    
+
+
+
+   
+
+  
+
+
+
 

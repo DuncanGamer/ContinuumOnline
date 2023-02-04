@@ -12,33 +12,27 @@ const { send } = require("process");
 
 //Routes for the login and logup api
 
-const Login = (req, res) => {
-
-
-  // Obtenemos el correo y la contraseña del cuerpo de la petición
+const Login = async (req, res) => {
   const { email, password } = req.body;
 
-  // Buscamos el usuario en la base de datos utilizando su correo electrónico
-  users.findOne({ email }, (error, user) => {
-    if (error) {
-      res.status(500).json({ message: "Error al iniciar sesión", error });
-    } else if (!user) {
-      // Si no se encuentra ningún usuario con ese correo electrónico, devolvemos un error
-      res.status(404).json({ message: "Usuario no encontrado" });
-    } else if (user.password !== password) {
-      // Si se encuentra el usuario, pero la contraseña es incorrecta, devolvemos un error
-      res.status(401).json({ message: "Contraseña incorrecta" });
-    } else {
-      // Si se encuentra el usuario y la contraseña es correcta, generamos un token JWT
-      jwt.sign({ user: user }, secretKey, { expiresIn: "30d" }, (err, token) => {
-        // Si no hay error al generar el token, devolvemos el token y el usuario en la respuesta
-        res.json({ token });
+  try {
+    const user = await users.findOne({ email });
 
-      });
+    if (!user) {
+      return res.status(404).json({ message: "Usuario no encontrado" });
     }
-  });
 
+    if (user.password !== password) {
+      return res.status(401).json({ message: "Contraseña incorrecta" });
+    }
+
+    const token = jwt.sign({ user }, secretKey, { expiresIn: "30d" });
+    return res.json({ token }), res.redirect('/users/all-users');
+  } catch (error) {
+    return res.status(500).json({ message: "Error al iniciar sesión", error });
+  }
 };
+
 
 
 const Logup = (req, res) => {
