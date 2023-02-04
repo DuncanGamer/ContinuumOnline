@@ -45,7 +45,7 @@ router.get("/delete-users/:id", usersControler.getdeletetUsers);
 router.get("/update-users/:id", usersControler.getupdateUsers);
 
 
-
+router.get("/doc", usersControler.getdoc);
 
 
 module.exports = router;

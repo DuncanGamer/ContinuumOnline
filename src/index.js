@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const app = express();
 const path = require('path');
 const users = require ('./routes/users')
+const login = require ('./routes/login')
 const loggedMiddleware = require('./middlewares/logged'); 
 const concerts = require ('./routes/concerts')
 
@@ -21,10 +22,10 @@ app.use(loggedMiddleware.isLogged);//Para que se cargue el middleware
 app.use (express.urlencoded({extended: false}));//Para que se puedan enviar y recibir datos en formato urlencoded
 app.use(express.json());//Para que se puedan enviar y recibir datos en formato json
 app.use (express.static(path.join(__dirname, 'public')));//Para que se carguen los archivos estaticos
-
-
+app.use (login)
 app.use('/users',users);
 app.use('/concerts',concerts);
+
 
 app.listen(app.get("port"), () => {
   console.log(`Todo va bien Brother ${app.get("port")}`);

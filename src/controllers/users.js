@@ -167,6 +167,11 @@ const getlogin = (req, res) => {
     res.render('login')
   }
 
+   
+const getdoc = (req, res) => {
+  res.render('doc')
+}
+
 
   const getupdateUsers = (req, res) => {
    const param = req.params.id
@@ -209,4 +214,5 @@ const getlogin = (req, res) => {
     getallusers,
     getlogin,
     Logup,
+    getdoc
   }   
