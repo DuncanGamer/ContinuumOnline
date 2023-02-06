@@ -6,8 +6,8 @@ const concertSchema = new Schema({
     place: {type: String, required: true},
     date: {type: String, required: true},
     price: {type: Number, required: true},
-    description: {type: String, required: true},
-    image: {type: String, required: true},
+    description: {type: String },
+    image: {type: String},
 
 },
 { 

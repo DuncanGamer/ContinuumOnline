@@ -53,38 +53,20 @@ router.get("/api/concerts/name/:name", async (req,res)=>{
 
 router.post ("/create-concerts", usersControler.createConcerts);
 
+router.get ("/create-concerts", usersControler.getcreateConcerts);
+
 router.get("/all-concerts", usersControler.getallconcerts);
 
 router.get("/delete-concerts/:id", usersControler.getdeleteConcerts);
 
+
+
 router.post('/delete-concerts/:id', usersControler.deleteConcerts);
 
-//Actualizar concierto
-router.put ("/api/concerts/:id",async(req,res)=>{
-   try {
-    const {id} = req.params;
-    await concerts.findByIdAndUpdate(id, req.body);
-    const myconcert = await concerts.find();
-    res.json (myconcert);
-    myconcert.save();
-   } catch (error) {
-    res.status(500).json({message:"Error"})
-    
-   }
-  });
-  //Eliminar concierto
-  router.delete ("/api/concerts/:id",async(req,res)=>{
-    try {
-     const {id} = req.params;
-     await concerts.findByIdAndDelete(id);
-     const myconcert = await concerts.find();
-     res.json (myconcert);
-      myconcert.save();
-    } catch (error) {
-     res.status(500).json({message:"Error"})
-     
-    }
-  });
+router.get("/update-concert/:id", usersControler.getupdateConcerts);
 
+router.post('/update-concert/:id', usersControler.updateConcert);
+
+  
 
 module.exports = router;

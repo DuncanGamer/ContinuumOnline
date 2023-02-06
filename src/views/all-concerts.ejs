@@ -114,6 +114,7 @@
         <td>Price</td>
         <td>Modificar</td>
         <td>Eliminar</td>
+        <td>Create</td>
     </tr>
    <%concerts.forEach((concerts) => {  %>
         <tr>
@@ -125,6 +126,7 @@
             <td><%=concerts.price%></td>
             <td><a id='btn-update' href="/concerts/update-concerts/<%=concerts.id%>">Update</a></td>
             <td><a id='btn-delete' href="/concerts/delete-concerts/<%=concerts.id%>">Delete</a></td>
+             <td><a id='btn-create' href="/concerts/create-concerts">Create</a></td>
         </tr>
              <% }) %>
 

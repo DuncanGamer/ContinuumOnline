@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/createform.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+   <div class="header">
+    <h1>Create concert</h1>
+   
+   </div>  
+    
+
+    <form action="/concerts/create-concerts" method="POST">
+        <label for="concertName">Concert name</label>
+        <input type="text" name="concertName" placeholder="concert" id="concert">
+        <label for="artist">Artist</label>
+        <input type="text" name="artist" placeholder="artist" id="artist">
+           <label for="date">Date</label>
+        <input type="text" name="date" placeholder="date" id="date">
+       
+        <label for="place">Place</label>
+        <input type="text" name="place" placeholder="place" id="place">
+       
+     
+        <label for="price">Price</label>
+        <input type="text" name="price" placeholder="price" id="price">
+          <label for="description">Description</label>
+        <input type="text" name="description" placeholder="description" id="description">
+          <label for="image">image</label>
+        <input type="text" name="image" placeholder="image" id="image">
+
+
+
+        <input id = 'btn-update'type="submit" value="Create">
+        <a id='btn-create'href="/concerts/all-concerts">All concerts</a>
+    </form>
+</div>
+
+</body>
+</html>
