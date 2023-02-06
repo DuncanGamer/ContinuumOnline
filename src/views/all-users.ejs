@@ -113,7 +113,7 @@
 
 
 
-
+<div class="container">
   <table>
     <tr>
       <td>Id</td>
@@ -122,6 +122,7 @@
       <td>Pasword</td>
       <td>Modificar</td>
       <td>Eliminar</td>
+      <td>Create</td>
     </tr>
     <%users.forEach((user) => {  %>
     <tr>
@@ -131,10 +132,12 @@
       <td><%=user.password%></td>
       <td><a id='btn-update' href="/users/update-users/<%=user.id%>">Update</a></td>
       <td><a id='btn-delete' href="/users/delete-users/<%=user.id%>">Delete</a></td>
+      <td><a id='btn-create' href="/users/create-users">Create</a></td>
     </tr>
     <% }) %>
 
   </table>
+</div>
 
 
 

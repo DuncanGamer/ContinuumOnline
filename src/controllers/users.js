@@ -84,7 +84,7 @@ const createUsers = (req, res) => {
  const newUser = new users({
   name: data.name,
   email: data.email,
-  password: data.password,
+  password : bcrypt.hashSync(req.body.password, 8),
 })
 newUser.save((err, result) => {
   if (err) {

@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/createform.css">
     <title>Document</title>
 </head>
 <body>
-   <div class="menu">
+<div class="container">
+   <div class="header">
     <h1>Create user</h1>
-    <a id='btn-update'href="/users/all-users">All users</a>
- </div>  
+   
+   </div>  
     
 
     <form action="/users/create-users" method="POST">
@@ -22,6 +24,9 @@
         <label for="password">Password</label>
         <input type="text" name="password" placeholder="Password" id="password">
         <input id = 'btn-update'type="submit" value="Create">
+        <a id='btn-create'href="/users/all-users">All users</a>
     </form>
+</div>
+
 </body>
 </html>
