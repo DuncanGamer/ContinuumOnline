@@ -11,27 +11,28 @@ const root = path.join(__dirname, '../public');
 
 
 
-const createConcerts = (req, res) => {
-  const data = req.body
-  const newConcert = new concerts({
-   concertName: data.concertName,
-    artist: data.artist,
-    date: data.date,
-    place: data.place,
-    price: data.price,
-    description: data.description,
-    image: data.image,
- })
- newConcert.save((err, result) => {
-   if (err) {
-     console.log ('error al rigistrar usuario')}
-     else {
-       console.log ('concert created')
-       res.redirect('/concerts/all-concerts')
-     }
-   })
-  
- }
+const createConcerts = async (req, res) => {
+  try {
+    const data = req.body;
+    const newConcert = new concerts({
+      concertName: data.concertName,
+      artist: data.artist,
+      date: data.date,
+      place: data.place,
+      price: data.price,
+      description: data.description,
+      image: data.image
+    });
+
+    const savedConcert = await newConcert.save();
+    console.log("Concert created");
+    res.status(201).json(savedConcert);
+  } catch (err) {
+    console.error("Error al registrar el concierto:", err);
+    res.status(500).send("Error al registrar el concierto");
+  }
+};
+
 
  const getcreateConcerts = (req, res) => {
   res.render('create-concerts')

@@ -7,7 +7,7 @@ const concertSchema = new Schema({
     date: {type: String, required: true},
     price: {type: Number, required: true},
     description: {type: String },
-    image: {type: String},
+    image: {url: String, public_id: String},
 
 },
 { 
