@@ -8,7 +8,7 @@ const users = require('../models/users');
 const path = require('path');
 const root = path.join(__dirname, '../public');
 const { send } = require("process");
-
+const bcrypt = require('bcrypt');
 
 //Routes for the login and logup api
 
@@ -84,7 +84,7 @@ const createUsers = (req, res) => {
  const newUser = new users({
   name: data.name,
   email: data.email,
-  password : bcrypt.hashSync(req.body.password, 8),
+  password : bcrypt.hashSync(data.password, 8),
 })
 newUser.save((err, result) => {
   if (err) {
