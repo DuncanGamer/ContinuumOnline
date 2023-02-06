@@ -14,7 +14,7 @@ const root = path.join(__dirname, '../public');
 const createConcerts = (req, res) => {
   const data = req.body
   const newConcert = new concerts({
-   concertName: data.name,
+   concertName: data.concertName,
     artist: data.artist,
     date: data.date,
     place: data.place,
