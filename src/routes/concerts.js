@@ -59,6 +59,7 @@ router.get("/all-concerts", usersControler.getallconcerts);
 
 router.get("/delete-concerts/:id", usersControler.getdeleteConcerts);
 
+router.get ("/api/all-concerts",usersControler.getConcertsForApi)
 
 
 router.post('/delete-concerts/:id', usersControler.deleteConcerts);

@@ -63,6 +63,17 @@ const getallconcerts = (req, res) => {
   })
 
 }
+const getConcertsForApi = (req, res) => {
+  concerts.find({}, (error, result) => {
+    if (error) {
+      console.log(error)
+    }
+    else {
+      console.log(result)
+      res.json({ concerts: result })
+    }
+  })
+}
 const deleteConcerts = async (req, res) => {
   try {
     const concertRemoved = await concerts.findByIdAndDelete(req.params.id);
@@ -137,5 +148,6 @@ module.exports = {
   getdeleteConcerts,
   updateConcert,
   getupdateConcerts,
-  getcreateConcerts
+  getcreateConcerts,
+  getConcertsForApi
 };
