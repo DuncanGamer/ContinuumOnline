@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { LondonCall } from './functions/AxiosCalls'
+import { LondonCall } from '../components/functions/AxiosCalls'
 
 
 const London = () => {

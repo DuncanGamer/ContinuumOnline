@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import React from 'react'
-import { token } from './functions/Auth';
+import { token } from '../components/functions/Auth';
 
 const Login = () => {
     

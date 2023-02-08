@@ -1,10 +1,10 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { unicoevento } from './functions/AxiosCalls'
+import { DataEvento,unicoevento,Simagen } from '../components/functions/AxiosCalls'
 import { useEffect, useState } from 'react'
-import { Simagen } from './functions/AxiosCalls'
-import { DataEvento } from './functions/AxiosCalls'
-import Baner from './Baner'
+import Baner from '../components/Baner'
+
+
 
 
 const Concertunic = () => {

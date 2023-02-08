@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 
 
 
+
 const Artist = () => {
 
     const [chearcher, Setchearcher] = useState("")
@@ -33,7 +34,7 @@ const Artist = () => {
 
     return (
         <>
-
+ 
             <div className="pt-16 bg-black sm:pt-36">
                 <div className=" container m-auto">
                     <div id="carouselDarkVariant" className="carousel slide carousel-fade carousel-dark " data-bs-ride="carousel">
