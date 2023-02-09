@@ -1,10 +1,21 @@
 import React, { createContext, useState } from 'react';
 
-export const PostContext = createContext();
+const PostContext = createContext();
 
-const PostContainer = ({ children }) => {
+export const usePostContext = () => {
+    const context = React.useContext(PostContext);
+    if (context === undefined) {
+        throw new Error('usePostContext must be used within a PostContainer');
+    }
+    return context;
+}
+
+const PostProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
 
+  const getConcerts = async () => {}
+
+  
   return (
     <PostContext.Provider value={{ posts, setPosts }}>
       {children}
@@ -12,4 +23,4 @@ const PostContainer = ({ children }) => {
   );
 };
 
-export default PostContainer;
+export default PostProvider;

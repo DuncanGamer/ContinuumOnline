@@ -74,7 +74,7 @@ function NavDesktop() {
                                         <a href="/London" className=" hover:text-gray-600">London</a>
                                         <a href="/Barcelona" className=" hover:text-gray-600">Barcelona</a>
                                         <a href="/Artist" className=" hover:text-gray-600">Artist</a>
-                                        <a href="/ConcertForm" className=" hover:text-gray-600">Indis</a>
+                                        <a href="/ConcertForm" className=" hover:text-gray-600">Indies</a>
                                     </div>
 
 
