@@ -1,36 +1,32 @@
 
 import { Link } from 'react-router-dom'
-import React from 'react'
 import Carrusel from '../components/Carrusel'
 import Baner from '../components/Baner'
-import { getIndieConcerts } from '../components/functions/AxiosCalls'
-import { useEffect, useState } from 'react'
+import { usePostContext } from '../Context/concertsContext'
+
+
+
+
 
 
 
 const ConcertForm = () => {
 
-
-  const [concert, Setconcert] = useState([])
-
-  useEffect(() => {
-
-      getIndieConcerts(Setconcert)
-  
+  const {concert}= usePostContext()
 
 
-  
-  }, [])
+
   if (!concert) {
     return <div>There are no concerts yet </div>;
   }
   
   return (
+<div>
     <div className=' w-screen'>
        <Carrusel/>
        
         <div className=" container mx-auto  overflow-x-auto   flex md:overflow-visible  px-6 py-6 ">
-                <div className="  px-6 py-6 shrink-0 mx-auto mt-96 snap-center flex sm:grid  content-center  md:grid-cols-3  lg:grid-cols-3  ">
+                <div className="  px-6 py-6 shrink-0 mx-auto snap-center flex sm:grid  content-center  md:grid-cols-3  lg:grid-cols-3  ">
 
                     {concert.map(({_id,concertName, artist, date, place, price, image }) => (
 
@@ -40,7 +36,7 @@ const ConcertForm = () => {
                                     <div className="flex justify-center">
                                         <div className="rounded-lg shadow-lg bg-white max-w-sm">
                                           
-                                                <img className="" src={image.url} alt="" />
+                                        {/* <img className="" src={image.url} alt="image" /> */}
                                           
                                             <div className="p-6">
                                                 <h5 className="text-gray-900 text-xl font-medium mb-2">{concertName}  {artist}</h5>
@@ -64,7 +60,15 @@ const ConcertForm = () => {
       <Baner/>
      
     </div>
+</div>
+
   )
 }
 
 export default ConcertForm
+
+
+
+
+
+  

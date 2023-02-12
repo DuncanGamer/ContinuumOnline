@@ -11,6 +11,7 @@ import ConcertForm from './pages/ConcertForm';
 import NavDesktop from './components/NavDesktop';
 import Footer from './components/Footer';
 import PostProvider from './Context/concertsContext';
+import NewConcert from './pages/NewConcert';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='/Barcelona' element={<Barcelona/>}/>
           <Route path='/Artist' element={<Artist/>}/>
           <Route path='/ConcertForm' element={<ConcertForm/>}/>
+          <Route path ='/NewConcert' element={<NewConcert/>}/>
          </Routes>
          </PostProvider>
         

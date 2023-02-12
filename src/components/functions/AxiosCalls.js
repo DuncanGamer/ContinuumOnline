@@ -48,15 +48,17 @@ const DataEvento = async (id,state) =>{
    
    } 
 
-   const getIndieConcerts = async (state) =>{
-    const peticion = await axios.get ('https://apicontinuum.herokuapp.com/concerts/api/all-concerts')
-    state(peticion.data.concerts)
-    console.log(peticion.data.concerts)
-}
+   const getIndieConcerts = async () => await axios.get ('https://apicontinuum.herokuapp.com/concerts/api/all-concerts')
+   
+
+   
+    const createConcert = async (newconcert) => await axios.post ('https://apicontinuum.herokuapp.com/concerts/create-concerts',newconcert)
+   
 
 
 
 
+export {createConcert}
 export {Simagen}
 export {AxiosCalls,unicoevento }
 export {DataEvento}
