@@ -60,7 +60,7 @@ const Concertunic = () => {
           <p > Locale: {info.locale}</p>
           <p > Date: {date.localDate}</p>
           <p> Time: {date.localTime}</p>
-          <a href={info.url}> <p>  Buy it in ticketmaster.com</p></a>
+          <a href={info.url}> <p className=' text-decoration-thickness: 1px; '>  Buy it in ticketmaster.com</p></a>
 
         </div>
 
