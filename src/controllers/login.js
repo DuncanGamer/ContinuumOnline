@@ -7,20 +7,20 @@ const getAdmin = (req, res) => {};
 
 
 const login_api = (req, res) => {
-    User.findOne({ email: req.body.email }, (err, user) => {
-      if (err) {
-        res.send("error al buscar usuario" + err);
-        return;
-      }
-      if (user) {
-        console.log("usuario encontrado");
-        res.redirect("/users/all-users");
-      } else {
-        res.send("usuario no encontrado");
-      }
-    });
-  };
-  
+  findOne({ email: req.body.email }, (err, user) => {
+    if (err) {
+      res.send("error al buscar usuario" + err);
+      return;
+    }
+    if (user) {
+      console.log("usuario encontrado");
+      res.redirect("/users/all-users");
+    } else {
+      res.send("usuario no encontrado");
+    }
+  });
+};
+
   
 
 const register = (req, res) => {

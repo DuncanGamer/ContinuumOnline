@@ -173,18 +173,30 @@ const getdoc = (req, res) => {
 }
 
 
-  const getupdateUsers = (req, res) => {
-   const param = req.params.id
-   users.find({_id:param}, (error, result) => {
-    if (error) {
-      console.log('ha ocurrido un error'+error)
-    }else{
-      console.log(result)
-      res.render('update-users', { users: result })
-    }
-   
-     })
+const getupdateUsers = (req, res) => {
+  try {
+    // Obtener el valor del parámetro de la URL
+    const { id } = req.params;
+
+    // Buscar un único usuario por su ID
+    users.findOne({ _id: id }, (err, result) => {
+      if (err) {
+        // Enviar una respuesta de error si algo sale mal
+        console.error('Ha ocurrido un error al buscar el usuario:', err);
+        res.status(500).send('Ha ocurrido un error al buscar el usuario.');
+        return;
+      }
+
+      // Enviar una respuesta exitosa con el usuario encontrado
+      console.log('Usuario encontrado:', result);
+      res.render('update-users', { users: result });
+    });
+  } catch (err) {
+    // Enviar una respuesta de error si ocurre un error inesperado
+    console.error('Ha ocurrido un error inesperado:', err);
+    res.status(500).send('Ha ocurrido un error inesperado.');
   }
+};
 
 
 

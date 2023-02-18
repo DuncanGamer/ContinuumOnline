@@ -2,7 +2,7 @@ const {Router} = require ('express');
 const  concerts = require ('../models/concerts');
 const router = Router();
 const express = require ('express');
-
+const loggedMiddleware = require('../middlewares/logged'); 
 const path = require('path');
 const root = path.join(__dirname, '../public');
 const secretKey = process.env.SECRET_KEY || "secret";
@@ -51,7 +51,7 @@ router.get("/api/concerts/name/:name", async (req,res)=>{
   
 //Crear concierto
 
-router.post ("/create-concerts", usersControler.createConcerts);
+router.post ("/create-concerts",loggedMiddleware.isLogged, usersControler.createConcerts);
 
 router.get ("/create-concerts", usersControler.getcreateConcerts);
 

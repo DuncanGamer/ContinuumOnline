@@ -9,9 +9,6 @@ const root = path.join(__dirname, '../public');
 const { uploadImage, deleteImage } = require('../libs/cloudinary');
 const fs = require('fs-extra');
 
-
-
-
 const createConcerts = async (req, res) => {
   try {
     const data = req.body;
@@ -26,6 +23,8 @@ const createConcerts = async (req, res) => {
       await fs.remove(req.files.image.tempFilePath)
     }
 
+    const userId = req.user._id; // Obtener el ID del usuario autenticado
+
     const newConcert = new concerts({
       concertName: data.concertName,
       artist: data.artist,
@@ -34,6 +33,7 @@ const createConcerts = async (req, res) => {
       price: data.price,
       description: data.description,
       image,
+      createdBy: userId // Agrega el ID del usuario autenticado
     });
 
     const savedConcert = await newConcert.save();
@@ -44,6 +44,41 @@ const createConcerts = async (req, res) => {
     res.status(500).send("Error registering the concert");
   }
 };
+
+
+
+// const createConcerts = async (req, res) => {
+//   try {
+//     const data = req.body;
+//     let image = {};
+
+//     if (req.files && req.files.image) {
+//       const result = await uploadImage(req.files.image.tempFilePath);
+//       image = {
+//         url: result.secure_url,
+//         public_id: result.public_id,
+//       }
+//       await fs.remove(req.files.image.tempFilePath)
+//     }
+
+//     const newConcert = new concerts({
+//       concertName: data.concertName,
+//       artist: data.artist,
+//       date: data.date,
+//       place: data.place,
+//       price: data.price,
+//       description: data.description,
+//       image,
+//     });
+
+//     const savedConcert = await newConcert.save();
+//     console.log("Concert created");
+//     res.status(201).json(savedConcert);
+//   } catch (err) {
+//     console.error("Error registering the concert:", err);
+//     res.status(500).send("Error registering the concert");
+//   }
+// };
 
 
 
