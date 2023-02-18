@@ -7,6 +7,7 @@ import axios from 'axios'
 // Se crea el contexto
 const PostContext = createContext();
 
+
 // Función que permite a los componentes hijos acceder al contexto
 export const usePostContext = () => {
   const context = useContext(PostContext);
@@ -29,17 +30,27 @@ const PostProvider = ({ children }) => {
   }
 
 
-
-
-const postConcert = async (newConcert, token) => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`
+  const postConcert = async (newConcert) => {
+    try {
+      const token = localStorage.getItem('token');
+      console.log('Token:', token);
+      console.log('New concert:', newConcert);
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      const res = await createConcert(newConcert, config);
+      setConcert([...concert, res.data]);
+    } catch (error) {
+      console.log(error);
     }
   };
-  const res = await createConcert( newConcert, config);
-  setConcert([...concert, res.data]);
-};
+  
+  
+  
+  
+
 
 
 //   const postConcert = async (newConcert) => {

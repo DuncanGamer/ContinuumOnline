@@ -22,6 +22,7 @@ const handleSubmit = (e) => {
     axios.post ('https://apicontinuum.herokuapp.com/users/login', data)
     
     .then (response => localStorage.setItem("token",response.data.token))
+    .then (response => localStorage.setItem("userId",response.data.userId))
     .then (response => nav('/'))
     .catch (error => setError(error))
 }
