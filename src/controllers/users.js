@@ -26,12 +26,34 @@ const Login = async (req, res) => {
       return res.status(401).json({ message: "Contraseña incorrecta" });
     }
 
-    const token = jwt.sign({ user }, secretKey, { expiresIn: "30d" });
-    return res.json({ token });
+    const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: "30d" });
+    return res.json({ token, userId: user.id });
   } catch (error) {
     return res.status(500).json({ message: "Error al iniciar sesión", error });
   }
 };
+
+
+// const Login = async (req, res) => {
+//   const { email, password } = req.body;
+
+//   try {
+//     const user = await users.findOne({ email });
+
+//     if (!user) {
+//       return res.status(404).json({ message: "Usuario no encontrado" });
+//     }
+
+//     if (user.password !== password) {
+//       return res.status(401).json({ message: "Contraseña incorrecta" });
+//     }
+
+//     const token = jwt.sign({ user }, secretKey, { expiresIn: "30d" });
+//     return res.json({ token });
+//   } catch (error) {
+//     return res.status(500).json({ message: "Error al iniciar sesión", error });
+//   }
+// };
 
 
 
