@@ -5,9 +5,8 @@ const User =require('../models/users');
 const getAdmin = (req, res) => {};
 
 
-
 const login_api = (req, res) => {
-  findOne({ email: req.body.email }, (err, user) => {
+  User.findOne({ email: req.body.email }, (err, user) => {
     if (err) {
       res.send("error al buscar usuario" + err);
       return;
@@ -20,6 +19,7 @@ const login_api = (req, res) => {
     }
   });
 };
+
 
   
 

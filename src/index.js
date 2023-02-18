@@ -18,7 +18,7 @@ app.set("port", process.env.PORT || 3000);
 app.set ('view engine', 'ejs');
 app.set ('views', path.join(__dirname, 'views'));
 app.use(morgan('dev'));//Para que se cargue el morgan morgan es un middleware que nos permite ver las peticiones que se hacen al servidor
-app.use(loggedMiddleware.isLogged);//Para que se cargue el middleware
+// app.use(loggedMiddleware.isLogged);//Para que se cargue el middleware
 app.use(fileUpload({
   useTempFiles : true,
   tempFileDir : './upload'
