@@ -2,6 +2,7 @@ import React, { createContext, useState, useContext } from 'react';
 import {getIndieConcerts} from '../components/functions/AxiosCalls'
 import { useEffect } from 'react'
 import {createConcert} from '../components/functions/AxiosCalls'
+import axios from 'axios'
 
 // Se crea el contexto
 const PostContext = createContext();
@@ -27,11 +28,25 @@ const PostProvider = ({ children }) => {
     }
   }
 
-  const postConcert = async (newConcert) => {
-    const res = await createConcert(newConcert)
-    setConcert([...concert, res.data])
 
-}
+
+
+const postConcert = async (newConcert, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  };
+  const res = await createConcert( newConcert, config);
+  setConcert([...concert, res.data]);
+};
+
+
+//   const postConcert = async (newConcert) => {
+//     const res = await createConcert(newConcert)
+//     setConcert([...concert, res.data])
+
+// }
 
   // Se ejecuta la función "fetchConcerts" después de que el componente se haya montado
   useEffect(() => {
