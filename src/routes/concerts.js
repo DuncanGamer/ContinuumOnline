@@ -51,7 +51,7 @@ router.get("/api/concerts/name/:name", async (req,res)=>{
   
 //Crear concierto
 
-router.post ("/create-concerts",loggedMiddleware.isLogged, usersControler.createConcerts);
+router.post ("/create-concerts", usersControler.createConcerts);
 
 router.get ("/create-concerts", usersControler.getcreateConcerts);
 
