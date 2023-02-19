@@ -5,6 +5,7 @@ const app = express();
 const path = require('path');
 const users = require ('./routes/users')
 const login = require ('./routes/login')
+const userconcerts = require ('./routes/user-concerts')
 const loggedMiddleware = require('./middlewares/logged'); 
 const concerts = require ('./routes/concerts')
 const fileUpload = require('express-fileupload');
@@ -30,6 +31,7 @@ app.use (express.static(path.join(__dirname, 'public')));//Para que se carguen l
 app.use (login)
 app.use('/users',users);
 app.use('/concerts',concerts);
+app.use('/user-concerts',userconcerts);
 
 
 app.listen(app.get("port"), () => {
