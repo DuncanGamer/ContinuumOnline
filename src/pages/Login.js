@@ -7,28 +7,27 @@ import React from 'react'
 import { token } from '../components/functions/Auth';
 
 const Login = () => {
-    
-const [error, setError] = useState();
-const nav = useNavigate();
-
-const handleSubmit = (e) => {
-    e.preventDefault();
-
-    
-    const data = {
+    const [error, setError] = useState();
+    const nav = useNavigate();
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+  
+      const data = {
         email: e.target.email.value,
         password: e.target.password.value,
-    } 
-    axios.post ('https://apicontinuum.herokuapp.com/users/login', data)
-    
-    .then (response => localStorage.setItem("token",response.data.token))
-    .then (response => localStorage.setItem("userId",response.data.userId))
-    .then (response => nav('/'))
-    .catch (error => setError(error))
-}
-
-
-    
+      };
+  
+      axios.post('http://localhost:3000/users/login', data)
+        .then((response) => {
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('userId', response.data.userId);
+          nav('/');
+        })
+        .catch((error) => setError(error));
+    };
+  
+  
   return (
     <>
         

@@ -41,7 +41,7 @@ function NavDesktop() {
                         </div>
                         <div className="flex gap-x-4 items-center">
                         <Link to="/NewConcert" className="bg-do-blue-mediumdark px-3 py-1 rounded text-sky-400 font-semibold">Create new concert</Link>
-
+                        <Link to="/MyConcerts" scroll={true} className="bg-do-blue-mediumdark px-3 py-1 rounded text-sky-400 font-semibold">My concerts</Link>
 
                         </div>
                     </div> </div>) : (<div className="  hidden lg:block bg-slate-800 text-gray-300 py-2 text-sm"><div className=" container  mx-auto flex justify-between">
@@ -54,7 +54,7 @@ function NavDesktop() {
                         </div>
                         <div className="flex gap-x-4 items-center">
                         <Link to="/NewConcert" className="bg-do-blue-mediumdark px-3 py-1 rounded text-sky-400 font-semibold">Create new concert</Link>
-
+                        <a href="/MyConcerts" scroll={true} className="bg-do-blue-mediumdark px-3 py-1 rounded text-sky-400 font-semibold">My concerts</a>
                         </div>
                     </div> </div>)}
 
