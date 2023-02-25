@@ -183,6 +183,20 @@ const getallusers = (req, res) => {
   })
   
  } 
+ const getOneusers = (req, res) => {
+  const param = req.params.id
+  users.find({_id:param}, (error, result) => {
+  
+    if (error) {
+      console.log(error)
+    }
+    else {
+      console.log(result)
+      res.json({ users: result })
+    }
+  })
+  
+ } 
 
  
 const getlogin = (req, res) => {
@@ -248,5 +262,6 @@ const getupdateUsers = (req, res) => {
     getallusers,
     getlogin,
     Logup,
-    getdoc
+    getdoc,
+    getOneusers,
   }   

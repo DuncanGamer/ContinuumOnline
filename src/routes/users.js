@@ -31,6 +31,7 @@ router.post('/delete-users/:id', usersControler.deleteUsers);
 
 router.post('/update-users/:id', usersControler.updateUsers);
 
+router.get("/one-users/:id", usersControler.getOneusers);
 
 //Routes for the views
 
